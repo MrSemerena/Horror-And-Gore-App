@@ -1,0 +1,60 @@
+<ion-title class="ion-text-wrap">
+  <h2 class="ion-text-center">
+    Check this out!
+  </h2>
+</ion-title>
+
+<swiper-container
+  [slidesPerView]="2"
+  [spaceBetweenSlides]="20"
+  [loop]="true"
+  [pagination]="true"
+  [autoplay]="{
+    delay: 3000
+  }"
+  effect="coverflow"
+  [coverflowEffect]="{
+    depth: 200,
+    modifier: 1,
+    rotate: 65,
+    scale: 1,
+    slideShadows: true,
+    stretch: 0
+  }"
+>
+  <swiper-slide
+    *ngFor="let banner of home_banners"
+  >
+    <ng-container 
+      {{banner.id}}
+    >
+      <div class="slide_container"
+        [style.background-image]="'url('+banner.bg_image+')'"
+      >
+        <div class="gradient"></div>
+
+        <div class="info">
+          <div class="info_header ion-text-wrap">
+            <ion-title>
+              <h2 class="ion-text-center">
+                {{banner.title}}
+              </h2>
+            </ion-title>
+            <ion-subtitle>
+              <h3 class="ion-text-center">
+                {{banner.subtitle}}
+              </h3>
+            </ion-subtitle>
+          </div>
+          <div class="info_body ion-text-wrap">
+            <ion-text class="ion-text-justify">
+              <p>
+                {{banner.description}}
+              </p>
+            </ion-text>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </swiper-slide>
+</swiper-container>
