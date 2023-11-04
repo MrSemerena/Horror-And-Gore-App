@@ -1,0 +1,72 @@
+<swiper-container
+  [slidesPerView]="2"
+  [spaceBetweenSlides]="20"
+  [loop]="true"
+  [pagination]="true"
+  [autoplay]="{
+    delay: 3000
+  }"
+  effect="creative"
+  [creativeEffect]="{
+    limitProgress: 4,
+    perspective: true,
+    prev: {
+      shadow: true,
+      translate: [0, 0, -400],
+    },
+    next: {
+      translate: ['100%', 0, 0]
+    },
+    progressMultiplier: 1,
+    shadowPerProgress: true
+  }"
+>
+  <swiper-slide
+    *ngFor="let card of home_creatures_cards"
+  >
+    <ng-container
+      {{card.id}}
+    >
+
+    </ng-container>
+    <div class="slide_container"
+      [style.background-color]="card.bg_color"
+    >
+      <img [src]="card.image" alt="">
+
+      <div class="gradient"></div>
+
+      <div class="info">
+        <div class="info_header">
+          Header content...
+        </div>
+        <div class="info_body">
+          Body content...
+        </div>
+      </div>
+    </div>
+  </swiper-slide>
+  <swiper-slide
+    *ngFor="let card of home_magic_cards"
+  >
+    <ng-container
+      {{card.id}}
+    >
+
+    </ng-container>
+    <div class="slide_container">
+      <img [src]="card.image" alt="">
+      
+      <div class="gradient"></div>
+
+      <div class="info">
+        <div class="info_header">
+          Header content...
+        </div>
+        <div class="info_body">
+          Body content...
+        </div>
+      </div>
+    </div>
+  </swiper-slide>
+</swiper-container>
